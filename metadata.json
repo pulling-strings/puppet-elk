@@ -1,0 +1,14 @@
+{
+  "name": "puppet-elk",
+  "version": "0.1.0",
+  "author": "strings",
+  "summary": "Setting up ELK (ES Logstash and Kibana4)",
+  "license": "Apache-2.0",
+  "source": "git@github.com:pulling-strings/puppet-elk.git",
+  "project_page": "https://github.com/pulling-strings/puppet-elk",
+  "issues_url": "https://github.com/pulling-strings/puppet-elk",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
