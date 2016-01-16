@@ -1,7 +1,7 @@
 # Setting Elasticsearch Kibana 4 and logstash
 class elk {
   include elk::logstash
-  class {'kibana4': }
+  include elk::kibana4
 
   class{'jdk':
     version => '8'
