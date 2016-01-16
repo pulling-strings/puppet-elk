@@ -8,8 +8,9 @@ class elk {
   } -> Package['logstash']
 
   class { 'elasticsearch':
-    manage_repo  => true,
-    repo_version => '1.4',
+    manage_repo      => true,
+    repo_version     => '1.4',
+    service_provider => 'systemd'
   }
 
   elasticsearch::instance { 'kibana4':
