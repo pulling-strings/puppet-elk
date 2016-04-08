@@ -1,7 +1,11 @@
 # Setting up kibana4
 class elk::kibana4 {
 
-  include ::kibana4
+  package{'curl':
+    ensure  => present
+  }
+
+  class {'::kibana4':}
 
   file { '/etc/systemd/system/kibana4.service':
     ensure => file,
