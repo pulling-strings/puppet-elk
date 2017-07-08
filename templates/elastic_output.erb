@@ -1,9 +1,0 @@
-output {
-  elasticsearch {
-    host    => "localhost"
-    protocol => "http"
-<% if(@cluster) -%>
-    cluster =>  "<%=@cluster%>"
-<% end -%>
-  }
-}

@@ -1,5 +1,5 @@
 # Setting up kibana4
-class elk::kibana4 {
+class elk::kibana5 {
 
   package{'curl':
     ensure  => present

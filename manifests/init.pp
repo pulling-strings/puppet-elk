@@ -1,23 +1,22 @@
-# Setting Elasticsearch Kibana 4 and logstash
+# Setting up elk 5.x
 class elk {
   include elk::logstash
-  include elk::kibana4
+  include elk::kibana5
 
-  class{'jdk':
-    version => '8'
-  } -> Package['logstash']
+  Apt::Source ['elasticsearch'] -> Package['kibana']
+  Apt::Source ['elasticsearch'] -> Package['logstash']
+
+  class{'jdk': }
 
   class { 'elasticsearch':
+    repo_version     => '5.x',
+    service_provider => 'systemd',
     manage_repo      => true,
-    repo_version     => '1.4',
-    service_provider => 'systemd'
+    require          => Class['jdk']
   }
 
-  elasticsearch::instance { 'kibana4':
-    config                     => {
-      'http.cors.enabled'      => true,
-      'http.cors.allow-origin' => '"*"'
-    }
+  elasticsearch::instance { 'kibana-01':
+    ensure => present
   }
 
 }
